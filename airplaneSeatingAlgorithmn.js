@@ -81,3 +81,23 @@ function replaceWithNumber(val,counter,seats,colSize,rowSize){
 	}
 	return {seats:seats,counter:counter};
 }
+//for the  Aisle,Window and Cntr Seats
+function fillWithCntrAlandWdw(array){
+	var seats=[];
+	for(var i=0;i<array.length;i++)
+	  	seats.push(Array(array[i][0]).fill().map(()=>Array(array[i][1]).fill("C")));
+	
+	for(var i=0;i<seats.length;i++){
+		for(var j=0;j<seats[i].length;j++){  
+	  		seats[i][j][0]="A";
+			seats[i][j][seats[i][j].length-1]="A";
+		}
+	  }
+
+	  for(var i=0;i<seats[0].length;i++)
+	  	seats[0][i][0]="W";
+	  for(var i=0;i<seats[seats.length-1].length;i++)
+		seats[seats.length-1][i][(seats[seats.length-1][i].length)-1]="W";
+	  
+	return seats;
+}
